@@ -1,0 +1,1 @@
+export default function Loading(){return <main className="container grid min-h-[70vh] place-items-center"><div className="size-8 animate-spin rounded-full border-2 border-white/20 border-t-[var(--accent)]"/></main>}
