@@ -1,2 +1,43 @@
-import Image from 'next/image'; import Link from 'next/link'; import { ArrowDown, ArrowRight } from 'lucide-react';
-export default function Hero(){return <section className="grid-bg border-b border-white/10"><div className="container grid items-center gap-10 py-16 md:grid-cols-[1.05fr_.95fr] md:py-24"><div><p className="mb-4 text-xs font-black tracking-[.3em] text-[var(--accent)]">WORKOUT LIBRARY</p><h1 className="display max-w-3xl text-6xl leading-[.9] sm:text-7xl lg:text-8xl">TRAIN WITH INTENT. LOG EVERY SET.</h1><p className="mt-7 max-w-xl text-base leading-7 text-zinc-400">FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="#library" className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-4 text-sm font-black text-black">BROWSE WORKOUTS <ArrowDown size={17}/></Link><span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-4 text-xs font-bold text-zinc-400">TRAIN • LOG • REPEAT <ArrowRight size={15}/></span></div></div><div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-zinc-900"><Image src="/assets/banner.png" alt="FitLog training banner" fill className="object-cover" priority/></div></div></section>}
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowDown, ArrowRight } from "lucide-react";
+export default function Hero() {
+  return (
+    <section className="grid-bg border-b border-white/10">
+      <div className="container grid items-center gap-10 py-16 md:grid-cols-[1.05fr_.95fr] md:py-24">
+        <div>
+          <p className="mb-4 text-xs font-black tracking-[.3em] text-[var(--accent)]">
+            WORKOUT LIBRARY
+          </p>
+          <h1 className="display max-w-3xl text-6xl leading-[.9] sm:text-7xl lg:text-8xl">
+            TRAIN WITH INTENT. LOG EVERY SET.
+          </h1>
+          <p className="mt-7 max-w-xl text-base leading-7 text-zinc-400">
+            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
+            into today&apos;s plan, and watch the week&apos;s work add up.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="#library"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-4 text-sm font-black text-black"
+            >
+              BROWSE WORKOUTS <ArrowDown size={17} />
+            </Link>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-4 text-xs font-bold text-zinc-400">
+              TRAIN • LOG • REPEAT <ArrowRight size={15} />
+            </span>
+          </div>
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-zinc-900">
+          <Image
+            src="/assets/banner.png"
+            alt="FitLog training banner"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+    </section>
+  );
+}

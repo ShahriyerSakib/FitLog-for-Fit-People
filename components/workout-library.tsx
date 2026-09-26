@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useState } from 'react';
-import { ArrowDownUp, LoaderCircle, Search } from 'lucide-react';
-import type { Workout } from '@/types/fitlog';
-import WorkoutCard from './workout-card';
+import { useEffect, useMemo, useState } from "react";
+import { ArrowDownUp, LoaderCircle, Search } from "lucide-react";
+import type { Workout } from "@/types/fitlog";
+import WorkoutCard from "./workout-card";
 
 export default function WorkoutLibrary() {
   const [items, setItems] = useState<Workout[]>([]);
   const [loading, setLoading] = useState(true);
-  const [sort, setSort] = useState('duration');
-  const [query, setQuery] = useState('');
+  const [sort, setSort] = useState("duration");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-    fetch('https://api.abcz.workers.dev/api/fitlog')
+    fetch("https://api.abcz.workers.dev/api/fitlog")
       .then((r) => r.json())
       .then((x) => {
-        const data = Array.isArray(x) ? x : x?.data ?? x?.workouts ?? [];
+        const data = Array.isArray(x) ? x : (x?.data ?? x?.workouts ?? []);
         setItems(data);
       })
       .catch(() => setItems([]))
@@ -25,14 +25,14 @@ export default function WorkoutLibrary() {
   const sorted = useMemo(() => {
     return items
       .filter((w) => {
-        const name = String(w.name ?? '');
+        const name = String(w.name ?? "");
         return name.toLowerCase().includes(query.toLowerCase());
       })
       .slice()
       .sort(
         (a, b) =>
           Number(a[sort as keyof Workout] ?? 0) -
-          Number(b[sort as keyof Workout] ?? 0)
+          Number(b[sort as keyof Workout] ?? 0),
       );
   }, [items, sort, query]);
 
@@ -44,9 +44,7 @@ export default function WorkoutLibrary() {
             THE LIBRARY
           </p>
 
-          <h2 className="display mt-2 text-5xl sm:text-6xl">
-            TWELVE LIFTS
-          </h2>
+          <h2 className="display mt-2 text-5xl sm:text-6xl">TWELVE LIFTS</h2>
 
           <p className="mt-2 text-zinc-400">
             Twelve lifts covering every major muscle group.
@@ -103,8 +101,8 @@ export default function WorkoutLibrary() {
               key={String(w.id)}
               workout={{
                 ...w,
-                name: String(w.name ?? 'Workout'),
-                image: String(w.image ?? w.imageUrl ?? w.thumbnail ?? ''),
+                name: String(w.name ?? "Workout"),
+                image: String(w.image ?? w.imageUrl ?? w.thumbnail ?? ""),
               }}
             />
           ))}
