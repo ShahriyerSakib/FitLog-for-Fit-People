@@ -40,13 +40,3 @@ npm start
 ```
 
 Do not commit `node_modules` or `.next`. The project is intentionally packaged without generated dependencies/build output so GitHub and Netlify can install and build it cleanly.
-
-## Suggested Git commit sequence
-1. `chore: initialize nextjs project`
-2. `feat: add global layout and navigation`
-3. `feat: add workout library api integration`
-4. `feat: add workout detail page`
-5. `feat: add plan and saved state`
-6. `feat: add my plan metrics and actions`
-7. `feat: add responsive styling and loading states`
-8. `docs: add project readme and deployment notes`
